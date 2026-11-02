@@ -48,7 +48,7 @@ if __name__ == '__main__':
     # # Symmap
     # disease_df = disease_df[["Disease_id", "Disease_Name"]]
     #
-    # disease_ids_path = "/home/liruilin/SUAT/PyProject/hypergraph/HyperCTI/HyperCTI-main/datasets/Symmap/disease_id_all.txt"
+    # disease_ids_path = "./datasets/Symmap/disease_id_all.txt"
     # disease_ids = pd.read_csv(disease_ids_path, header=None)
     # # TCMsuite
     # # disease_ids.rename(columns={0: "id1"}, inplace=True)
@@ -81,7 +81,7 @@ if __name__ == '__main__':
 
     # exp3 dataset split -- 5-cv
     dataset = "TCMsuite"
-    datasets_dir = "/home/liruilin/SUAT/PyProject/hypergraph/HyperCTI/HyperCTI-main/datasets"
+    datasets_dir = "./datasets"
 
     save_dir = "./exp3"
     os.makedirs(save_dir, exist_ok=True)
@@ -98,8 +98,8 @@ if __name__ == '__main__':
     all_cti_set = set(zip(cti_df[0], cti_df[1]))
 
     all_disease_ids = set(td_df[1].unique())
-    disease_class_file = "./{}_disease_class.csv"
-    c_df = pd.read_csv(disease_class_file.format(dataset))
+    disease_class_file = f"./{datasets_dir}/{dataset}_disease_class.csv"
+    c_df = pd.read_csv(disease_class_file)
     c_df.rename(columns={"id1": 1}, inplace=True)
     for cls in range(5):
         one_cls = c_df[c_df['class'] == cls]

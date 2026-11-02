@@ -169,9 +169,9 @@ class BioEncoder(nn.Module):
         return h_compound_bio, h_protein_bio
 
 
-class HyperCTI_Net(nn.Module):
+class HeraTCMNet(nn.Module):
     def __init__(self, num_compounds, num_proteins, emb_size, bio_config, n_layer=3):
-        super(HyperCTI_Net, self).__init__()
+        super(HeraTCMNet, self).__init__()
         self.num_compounds = num_compounds
         self.num_proteins = num_proteins
         self.emb_size = emb_size
@@ -299,7 +299,7 @@ class HyperCTI_Net(nn.Module):
 
         return predict
 
-class HyperCTI:
+class HeraTCM:
     def __init__(self, conf, train_set=None, test_set=None, fold='[1]'):
         self.config = conf
         self.foldInfo = fold
@@ -415,8 +415,8 @@ class HyperCTI:
         default_features_dir = f'{self.config["dataset_dir"]}/features/'
         default_compound_dir = f'{self.config["dataset_dir"]}/features/newfeatures/'
         default_protein_dir = f'{self.config["dataset_dir"]}/features/newfeatures/'
-        compound_features_dir = os.environ.get('HyperCTI_COMPOUND_FEATURES_DIR', default_compound_dir)
-        protein_features_dir = os.environ.get('HyperCTI_PROTEIN_FEATURES_DIR', default_protein_dir)
+        compound_features_dir = os.environ.get('HeraTCM_COMPOUND_FEATURES_DIR', default_compound_dir)
+        protein_features_dir = os.environ.get('HeraTCM_PROTEIN_FEATURES_DIR', default_protein_dir)
 
         id2compound = {v: k for k, v in self.data.compound.items()}
         id2protein = {v: k for k, v in self.data.protein.items()}
@@ -503,7 +503,7 @@ class HyperCTI:
         }
 
         # 实例化网络主体
-        self.model = HyperCTI_Net(
+        self.model = HeraTCMNet(
             self.num_compounds,
             self.num_proteins,
             self.emb_size,
@@ -584,7 +584,7 @@ class HyperCTI:
         ckp_save_dir = self.config['checkpoint']
         model_dir = os.path.join(ckp_save_dir, currentTime + self.foldInfo)
         os.makedirs(model_dir, exist_ok=True)
-        save_path = os.path.join(model_dir, 'HyperCTI_model.pt')
+        save_path = os.path.join(model_dir, 'HeraTCM_model.pt')
         torch.save(self.model.state_dict(), save_path)
         print('模型权重已保存：', save_path)
         

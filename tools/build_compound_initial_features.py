@@ -1,5 +1,5 @@
 """
-HyperCTI 项目 - 构建化合物初始特征
+HeraTCM 项目 - 构建化合物初始特征
 ────────────────────────────────────────────────────────────────────────────
 输入：compound_smiles_pubchem.txt（由 fetch_smiles_from_pubchem.py 生成）
 输出（保存到 dataset/TCMsuite/features/newfeatures/）：
@@ -12,7 +12,7 @@ HyperCTI 项目 - 构建化合物初始特征
   invalid_smiles.txt    （存在无效 SMILES 时生成）
 
 目录结构：
-  HyperCTI-main4/                             ← repo_root（项目根）
+  HeraTCM-main4/                             ← repo_root（项目根）
     ├── MVML-MPI-main/MVML-MPI-main/
     │     └── pubchemfp.py
     └── dataset/TCMsuite/features/
@@ -215,11 +215,11 @@ def main():
     args = parser.parse_args()
 
     # 修改4：repo_root 从 parent.parent 改为 parent * 4
-    # 脚本路径: HyperCTI-main4/dataset/TCMsuite/features/tools/build_compound_initial_features.py
+    # 脚本路径: HeraTCM-main4/dataset/TCMsuite/features/tools/build_compound_initial_features.py
     # parent(1)=tools, parent(2)=features, parent(3)=TCMsuite, parent(4)=dataset, parent(5)≠root
     # 实测：脚本在 tools/ 下，parent.parent = features/（原代码以此为 repo_root 是错的）
-    # MVML-MPI-main 在 HyperCTI-main4/ 下，所以 repo_root = tools/ 的上4级
-    repo_root = Path(__file__).resolve().parents[1]  # HyperCTI-main4/
+    # MVML-MPI-main 在 HeraTCM-main4/ 下，所以 repo_root = tools/ 的上4级
+    repo_root = Path(__file__).resolve().parents[1]  # HeraTCM-main4/
 
     input_path = (
         (repo_root / args.input).resolve()

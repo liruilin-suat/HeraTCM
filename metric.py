@@ -29,7 +29,7 @@ def metric(y_true, y_pred):
 if __name__ == "__main__":
     
     d_types = ["Symmap", "TCMsuite"]
-    fold_result_dir = "experiment/0902_fusion/results/ablation/without_f"
+    fold_result_dir = "results"
 
     for d in d_types:
         dataset_dir = os.path.join(fold_result_dir, d, "cv")

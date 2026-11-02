@@ -1,0 +1,6 @@
+fair-esm==2.0.1
+networkx==3.3
+torch==2.9.0
+omegaconf
+rdkit==2025.9.3
+scikit-learn==1.7.2

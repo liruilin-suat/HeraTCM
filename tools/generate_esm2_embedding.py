@@ -14,7 +14,7 @@ ESM2 模型选择（按显存从小到大）:
   esm2_t6_8M_UR50D       →  320 维  ~0.1GB
   esm2_t12_35M_UR50D     →  480 维  ~0.2GB
   esm2_t30_150M_UR50D    →  640 维  ~0.6GB
-  esm2_t33_650M_UR50D    → 1280 维  ~2.5GB  ← 默认（与 HyperCTI 对接）
+  esm2_t33_650M_UR50D    → 1280 维  ~2.5GB  ← 默认（与 HeraTCM 对接）
   esm2_t36_3B_UR50D      → 2560 维  ~12GB
   esm2_t48_15B_UR50D     → 5120 维  ~60GB
 

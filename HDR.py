@@ -5,7 +5,7 @@ from util.io import FileIO
 from time import strftime, localtime, time
 import numpy as np
 import os
-from HyperCTI_torch import HyperCTI
+from model import HeraTCM
 
 def save_train_dataset(data, save_dir):
     os.makedirs(save_dir, exist_ok=True)
@@ -47,7 +47,7 @@ class HDR:
                 fold = '[' + str(i) + ']'
                 print(f"=== Starting Fold {i}/{k} ===")
                 
-                model_instance = HyperCTI(self.config, train, test, fold=fold)
+                model_instance = HeraTCM(self.config, train, test, fold=fold)
                 fold_res = model_instance.trainModel()  # 直接拿到当前折的指标字典
                 
                 self.measure.append(fold_res)

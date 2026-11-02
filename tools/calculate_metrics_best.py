@@ -15,7 +15,7 @@ files = [
     "2026-05-11 02-03-06[5].txt"
 ]
 
-# 脚本在 tools/ 下，往上一级即 HyperCTI-main4-1/，再进入 results/cv/
+# 脚本在 tools/ 下，往上一级即 HeraTCM-main4-1/，再进入 results/cv/
 cv_path = os.path.normpath(os.path.join(SCRIPT_DIR, '..', 'results', 'cv'))
 
 all_auc, all_aupr, all_f1, all_recall, all_precision = [], [], [], [], []

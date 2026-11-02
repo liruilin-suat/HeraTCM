@@ -1,7 +1,7 @@
 # coding:utf8
 import os
 from util.config import ModelConf
-from HyperCTI_torch import HyperCTI
+from model import HeraTCM
 import numpy as np
 import torch
 import pandas as pd
@@ -14,9 +14,9 @@ os.environ["CUDA_VISIBLE_DEVICES"] = "0"
 
 if __name__ == '__main__':
 
-    dataset_name = "TCMsuite"
+    dataset_name = "Symmap"
 
-    conf = ModelConf(f'./HyperCTI_{dataset_name.lower()}.conf')
+    conf = ModelConf(f'./HeraTCM_{dataset_name.lower()}.conf')
     if not conf.contains('datapath'):
         raise ValueError("配置文件中缺少 datapath")
 
@@ -29,7 +29,7 @@ if __name__ == '__main__':
         i = int(fold.split("[")[-1].split("]")[0]) - 1
         print(f"\n🔁 处理第 {i} 折...")
         test_path = f'./datasets/{dataset_name}/train_datasets/test_fold_{i}.txt'
-        model_ckpt_path = os.path.join(fold, "HyperCTI_model.pt")
+        model_ckpt_path = os.path.join(fold, "HeraTCM_model.pt")
 
         if not os.path.exists(test_path):
             raise ValueError(f"❌ 找不到测试文件: {test_path}")
@@ -47,7 +47,7 @@ if __name__ == '__main__':
                 test_set.append((herb_name, protein_name, int(float(label))))
         print(f"✅ 成功加载测试集，共 {len(test_set)} 条")
 
-        model = HyperCTI(conf, train_set=[], test_set=test_set)
+        model = HeraTCM(conf, train_set=[], test_set=test_set)
         model.initModel()
         # 加载保存的权重字典
         state_dict = torch.load(os.path.join(model_dir, model_ckpt_path))

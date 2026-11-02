@@ -29,8 +29,8 @@ def parse_args():
     parser.add_argument(
         '-c', '--config', 
         type=str, 
-        default='HyperCTI_symmap.conf', 
-        help='Name or path of the configuration file (default: HyperCTI_tcmsuite.conf)'
+        default='HeraTCM_symmap.conf',
+        help='Name or path of the configuration file (default: HeraTCM_symmap.conf)'
     )
     return parser.parse_args()
 
