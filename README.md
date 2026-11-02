@@ -10,7 +10,7 @@ HeraTCM integrates molecular representations of compounds, protein sequence repr
 The overall architecture of HeraTCM is illustrated below.
 
 <p align="center">
-  <img src="figures/model.png" width="90%" alt="Overall architecture of HeraTCM">
+  <img src="figures/model.png" width="100%" alt="Overall architecture of HeraTCM">
 </p>
 
 
